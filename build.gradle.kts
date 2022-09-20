@@ -1,6 +1,11 @@
 plugins {
+    // Apply the Java Gradle Plugin Development plugin
     id("java-gradle-plugin")
+
+    // Apply the Kotlin DSL Plugin for enhanced IDE support
     `kotlin-dsl`
+
+    // Apply the Plugin Publishing Plugin to publish plugins to the Gradle Plugins Portal
     id("com.gradle.plugin-publish") version "0.20.0"
     id("maven-publish")
 }
@@ -13,7 +18,10 @@ repositories {
 }
 
 dependencies {
+    // Align versions of all Kotlin components
     implementation(platform(kotlin("bom")))
+
+    // Use the Kotlin JDK 8 standard library
     implementation(kotlin("stdlib-jdk8"))
 
     // Gradle test kit using JUnit
@@ -22,6 +30,7 @@ dependencies {
 }
 
 java{
+    // explicitly target Java 11
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }

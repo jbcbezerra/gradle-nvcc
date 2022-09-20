@@ -2,7 +2,6 @@ package io.github.jbcbezerra.nvcc
 
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.InputFile
 
 abstract class LibraryDefinition {
 
