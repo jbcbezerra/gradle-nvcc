@@ -41,7 +41,7 @@ gradlePlugin {
             id = "io.github.jbcbezerra.nvcc"
             displayName = "nvcc gradle plugin"
             description = "Integrates nvcc with the Gradle build system"
-            implementationClass = "io.github.jbcbezerra.NvccPlugin"
+            implementationClass = "io.github.jbcbezerra.nvcc.NvccPlugin"
         }
     }
 }
