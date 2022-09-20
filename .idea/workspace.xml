@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4df113b0-bbc4-4dc5-8f76-cee1600427ed" name="Changes" comment="impl nvcc plugin" />
+    <list default="true" id="4df113b0-bbc4-4dc5-8f76-cee1600427ed" name="Changes" comment="impl nvcc plugin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +35,18 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="gradle-nvcc" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="gradle-nvcc" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="gradle-nvcc" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="plugin development" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -77,13 +92,58 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "11",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.gradle-nvcc [publishToMavenLocal]">
+  <component name="RunManager" selected="Gradle.gradle-nvcc [publishPlugins]">
+    <configuration name="NvccPluginFunctionalTest.test whether nvcc task succeeds" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.jbcbezerra.nvcc.NvccPluginFunctionalTest.test whether nvcc task succeeds&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="gradle-nvcc [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="gradle-nvcc [publishNvccPluginMarkerMavenPublicationToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -96,48 +156,6 @@
         <option name="taskNames">
           <list>
             <option value="publishNvccPluginMarkerMavenPublicationToMavenLocal" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="gradle-nvcc [publishPluginJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="publishPluginJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="gradle-nvcc [publishPluginMavenPublicationToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="publishPluginMavenPublicationToMavenLocal" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -191,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.gradle-nvcc [publishToMavenLocal]" />
-        <item itemvalue="Gradle.gradle-nvcc [publishNvccPluginMarkerMavenPublicationToMavenLocal]" />
-        <item itemvalue="Gradle.gradle-nvcc [publishPluginMavenPublicationToMavenLocal]" />
-        <item itemvalue="Gradle.gradle-nvcc [publishPluginJar]" />
         <item itemvalue="Gradle.gradle-nvcc [publishPlugins]" />
+        <item itemvalue="Gradle.gradle-nvcc [clean]" />
+        <item itemvalue="Gradle.gradle-nvcc [publishToMavenLocal]" />
+        <item itemvalue="Gradle.NvccPluginFunctionalTest.test whether nvcc task succeeds" />
+        <item itemvalue="Gradle.gradle-nvcc [publishNvccPluginMarkerMavenPublicationToMavenLocal]" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +225,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663671024107</updated>
-      <workItem from="1663671025344" duration="17874000" />
+      <workItem from="1663671025344" duration="23054000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1663672329292</created>
@@ -244,7 +262,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663697912517</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="impl nvcc plugin">
+      <created>1663697928493</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1663697928493</updated>
+    </task>
+    <task id="LOCAL-00007" summary="impl nvcc plugin">
+      <created>1663712204962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1663712204962</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,13 +302,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/io/github/jbcbezerra/nvcc/NvccPluginFunctionalTest.kt</url>
-          <line>38</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/io/github/jbcbezerra/nvcc/NvccTask.kt</url>
-          <line>55</line>
+          <line>57</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

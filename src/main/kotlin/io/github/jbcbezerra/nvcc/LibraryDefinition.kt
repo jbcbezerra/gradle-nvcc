@@ -2,6 +2,7 @@ package io.github.jbcbezerra.nvcc
 
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputFile
 
 abstract class LibraryDefinition {
 
@@ -15,5 +16,5 @@ abstract class LibraryDefinition {
      * The absolute path of the .cu file.
      */
     @get:Input
-    abstract val cuFilePath: Property<String>
+    abstract val cuFile: Property<String>
 }

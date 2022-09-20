@@ -26,6 +26,11 @@ class NvccPluginFunctionalTest {
             plugins {
                 id 'io.github.jbcbezerra.nvcc'
             }
+            nvcc{
+                cuFile("/home/joao/IdeaProjects/gradle-nvcc/src/test/resources/test.cu"){
+                    compilationPhase = "ptx"
+                }
+            }
             """.trimIndent())
         }
     }

@@ -1,12 +1,12 @@
 plugins {
-    `java-gradle-plugin`
+    id("java-gradle-plugin")
     `kotlin-dsl`
     id("com.gradle.plugin-publish") version "0.20.0"
     id("maven-publish")
 }
 
 group = "io.github.jbcbezerra"
-version = "0.1.0"
+version = "0.1.2"
 
 repositories {
     mavenCentral()
@@ -59,10 +59,4 @@ tasks.withType<Wrapper> {
 
 tasks.withType<Test>().configureEach{
     useJUnitPlatform()
-}
-
-publishing {
-    repositories{
-        mavenLocal()
-    }
 }

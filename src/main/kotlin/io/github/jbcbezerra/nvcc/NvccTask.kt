@@ -1,6 +1,7 @@
 package io.github.jbcbezerra.nvcc
 
 import org.codehaus.groovy.runtime.ProcessGroovyMethods
+import org.gradle.api.Action
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.file.DirectoryProperty
@@ -8,6 +9,7 @@ import org.gradle.api.tasks.Nested
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.internal.os.OperatingSystem
+import org.gradle.kotlin.dsl.newInstance
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
@@ -68,8 +70,8 @@ abstract class NvccTask : DefaultTask(){
             val arguments = ArrayList<String>()
 
             // set phase and .cu file (mandatory)
-            arguments += definition.compilationPhase.get()
-            arguments += definition.cuFilePath.get()
+            arguments += "-${definition.compilationPhase.get()}"
+            arguments += definition.cuFile.get()
 
             // Set output directory
             arguments += "--output-directory"
@@ -77,6 +79,13 @@ abstract class NvccTask : DefaultTask(){
 
             execute("${nvccBinary} ${arguments.joinToString(" ")}")
         }
+    }
+
+    fun cuFile(cuFile: String, action: Action<LibraryDefinition>) {
+        val definition = project.objects.newInstance<LibraryDefinition>()
+        definition.cuFile.set(cuFile)
+        action.execute(definition)
+        definitions += definition
     }
 
     private companion object {
