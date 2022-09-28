@@ -27,7 +27,8 @@ class NvccPluginFunctionalTest {
                 id 'io.github.jbcbezerra.nvcc'
             }
             nvcc{
-                cuFile("/home/joao/IdeaProjects/gradle-nvcc/src/test/resources/test.cu"){
+                cuPath("/home/joao/IdeaProjects/gradle-nvcc/src/test/resources"){
+                    cuFiles = ["test.cu"]
                     compilationPhase = "ptx"
                 }
             }

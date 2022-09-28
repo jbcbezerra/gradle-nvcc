@@ -19,10 +19,8 @@ abstract class NvccTask : DefaultTask(){
 
     /** The output directory in which the generated code will be placed. */
     @get:OutputDirectory
-    val outputDir: DirectoryProperty = project.objects.directoryProperty()
+    val defaultOutputDir: DirectoryProperty = project.objects.directoryProperty()
         .convention(project.layout.buildDirectory.dir("generated/sources/nvcc"))
-
-    //TODO: default look for .cu files in resource and compile with ptx (v0.1.1)
 
     @get:Nested
     val definitions = ArrayList<LibraryDefinition>()
@@ -53,6 +51,24 @@ abstract class NvccTask : DefaultTask(){
         }
     }
 
+    private fun getCuFiles(path: String): ArrayList<String> {
+        val cuFilesTemp = ArrayList<String>()
+        if (!Files.isDirectory(Path.of(path)))
+            throw GradleException("${path} is not a directory")
+
+        File(path).walk().forEach {
+            cuFilesTemp += it.absolutePath
+        }
+
+        val cuFiles = ArrayList<String>()
+        cuFilesTemp.forEach {
+            if (it.endsWith(".cu"))
+                cuFiles += it
+        }
+
+        return cuFiles
+    }
+
     @TaskAction
     fun action(){
         val nvccBinary = findExecutable()
@@ -66,24 +82,50 @@ abstract class NvccTask : DefaultTask(){
 
         for (definition in definitions){
 
-            // Initialize argument list
-            val arguments = ArrayList<String>()
+            val allCuFiles = getCuFiles(definition.cuPath.get())
+            val cuFilesToCompile = ArrayList<String>()
 
-            // set phase and .cu file (mandatory)
-            arguments += "-${definition.compilationPhase.get()}"
-            arguments += definition.cuFile.get()
+            if (!definition.cuFiles.get().isEmpty()) {
+                println(definition.cuFiles.get())
 
-            // Set output directory
-            arguments += "--output-directory"
-            arguments += outputDir.get().toString()
+                for (whitelistCuFile in definition.cuFiles.get()) {
+                    var found = false
+                    for (cuFile in allCuFiles) {
+                        if (cuFile.endsWith(whitelistCuFile)) {
+                            cuFilesToCompile += cuFile
+                            found = true
+                            break
+                        }
+                    }
+                    if (!found)
+                        throw GradleException("Can't find ${whitelistCuFile} in ${definition.cuPath}.")
+                }
+            }else{
+                allCuFiles.forEach{
+                    cuFilesToCompile += it
+                }
+            }
 
-            execute("${nvccBinary} ${arguments.joinToString(" ")}")
+            for (cuFile in cuFilesToCompile){
+                // Initialize argument list
+                val arguments = ArrayList<String>()
+
+                // set phase and .cu file (mandatory)
+                arguments += "-${definition.compilationPhase.get()}"
+                arguments += cuFile
+
+                // Set output directory
+                arguments += "--output-directory"
+                arguments += defaultOutputDir.get().toString()
+
+                execute("${nvccBinary} ${arguments.joinToString(" ")}")
+            }
         }
     }
 
-    fun cuFile(cuFile: String, action: Action<LibraryDefinition>) {
+    fun cuPath(cuPath: String, action: Action<LibraryDefinition>) {
         val definition = project.objects.newInstance<LibraryDefinition>()
-        definition.cuFile.set(cuFile)
+        definition.cuPath.set(cuPath)
         action.execute(definition)
         definitions += definition
     }
